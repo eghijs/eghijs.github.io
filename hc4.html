@@ -1,0 +1,473 @@
+<!--
+Proprietário, nome: Erik Pereira Ghijs
+Contato: eghijs@gmail.com
+
+Organização, projeto: Consórcios HC2 e HC4, Política do Sistema de Gestão Integrada
+Finalidade do script: Exibir a Política do Sistema de Gestão Integrada em HTML com CSS otimizado para visualização em tela e impressão em formato A4
+Ambiente previsto: Navegadores modernos, Chrome, Edge, Firefox, ambiente web interno ou servidor Nginx/Apache
+Classificação: Uso interno, confidencial
+Controle de versão: Versão 2.1.0, data 26-03-2026
+
+Aviso legal: Script de propriedade exclusiva do autor. Uso restrito ao ambiente interno autorizado. Proibida cópia, redistribuição, modificação ou uso sem autorização formal. Uso indevido sujeito a sanções legais.
+
+Checklist de segurança: validações básicas de estrutura HTML, código legível para auditoria, sem dependências externas, modo estático sem execução privilegiada, atenção à publicação apenas em ambiente interno autorizado.
+-->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Política do Sistema de Gestão Integrada, Consórcio HC4</title>
+    <style>
+        :root {
+            --cor-primaria: #f58733;
+            --cor-secundaria: #da7139;
+            --cor-destaque: #eef5fa;
+            --cor-texto: #1f2d3a;
+            --cor-texto-suave: #5c6b77;
+            --cor-borda: #d9e3ea;
+            --cor-fundo: #f2f6f9;
+            --cor-branco: #ffffff;
+            --cor-sombra: rgba(0, 0, 0, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: linear-gradient(135deg, #eef4f8, #f8fbfd);
+            color: var(--cor-texto);
+            line-height: 1.6;
+            padding: 24px;
+        }
+
+        .pagina {
+            max-width: 980px;
+            margin: 0 auto;
+        }
+
+        .documento {
+            background: var(--cor-branco);
+            border: 1px solid var(--cor-borda);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px var(--cor-sombra);
+        }
+
+        .topo {
+            background: var(--cor-primaria);
+            color: var(--cor-branco);
+            padding: 24px 32px;
+        }
+
+        .topo-superior {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 18px;
+        }
+
+        .grupo-logos {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        /*.box-logo {
+            width: 200px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.10);
+            border: 1px solid rgba(255, 255, 255, 0.20);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 8px;
+        }*/
+
+        .box-logo img {
+            max-width: 155px;
+            max-height: 70px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .identificacao {
+            text-align: right;
+        }
+
+        .identificacao .linha-1 {
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            opacity: 0.95;
+        }
+
+        .identificacao .linha-2 {
+            font-size: 16px;
+            font-weight: bold;
+            margin-top: 4px;
+        }
+
+        .titulo-principal {
+            border-top: 1px solid rgba(255, 255, 255, 0.18);
+            padding-top: 18px;
+        }
+
+        .titulo-principal h1 {
+            font-size: 28px;
+            line-height: 1.25;
+            text-transform: uppercase;
+            margin-bottom: 8px;
+        }
+
+        .titulo-principal p {
+            font-size: 15px;
+            opacity: 0.96;
+        }
+
+        .conteudo {
+            padding: 28px 32px;
+        }
+
+        .bloco-abertura {
+            background: var(--cor-destaque);
+            border-left: 5px solid var(--cor-secundaria);
+            border-radius: 10px;
+            padding: 16px 18px;
+            margin-bottom: 24px;
+        }
+
+        .bloco-abertura p {
+            font-size: 15px;
+            font-weight: bold;
+        }
+
+        .lista-politica {
+            list-style: none;
+        }
+
+        .lista-politica li {
+            position: relative;
+            margin-bottom: 14px;
+            padding: 14px 16px 14px 48px;
+            border: 1px solid #e7eef3;
+            border-radius: 10px;
+            background: #fcfeff;
+            text-align: justify;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .lista-politica li::before {
+            content: "•";
+            position: absolute;
+            left: 18px;
+            top: 10px;
+            font-size: 24px;
+            line-height: 1;
+            color: var(--cor-secundaria);
+            font-weight: bold;
+        }
+
+        .bloco-final {
+            margin-top: 24px;
+            background: #f5f9fc;
+            border: 1px solid var(--cor-borda);
+            border-radius: 10px;
+            padding: 18px;
+            page-break-inside: avoid;
+            break-inside: avoid;
+        }
+
+        .bloco-final p {
+            font-size: 15px;
+            font-weight: bold;
+            color: var(--cor-primaria);
+            text-align: justify;
+        }
+
+        .rodape {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            padding: 20px 32px 24px 32px;
+            border-top: 1px solid var(--cor-borda);
+            background: #fbfdff;
+        }
+
+        .dados-revisao {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .dado-item .rotulo {
+            display: block;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            color: var(--cor-texto-suave);
+            margin-bottom: 4px;
+        }
+
+        .dado-item .valor {
+            font-size: 15px;
+            font-weight: bold;
+            color: var(--cor-primaria);
+        }
+
+        .selo-documento {
+            background: var(--cor-primaria);
+            color: var(--cor-branco);
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.8px;
+            font-weight: bold;
+        }
+
+        .acoes {
+            max-width: 980px;
+            margin: 16px auto 0 auto;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .btn-imprimir {
+            border: none;
+            background: var(--cor-primaria);
+            color: var(--cor-branco);
+            padding: 12px 18px;
+            border-radius: 10px;
+            font-size: 14px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn-imprimir:hover {
+            background: var(--cor-secundaria);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 14px;
+            }
+
+            .topo,
+            .conteudo,
+            .rodape {
+                padding-left: 20px;
+                padding-right: 20px;
+            }
+
+            .titulo-principal h1 {
+                font-size: 22px;
+            }
+
+            .identificacao {
+                text-align: left;
+            }
+
+            .box-logo {
+                width: 140px;
+                height: 64px;
+            }
+        }
+
+        @page {
+            size: A4 portrait;
+            margin: 12mm 10mm 12mm 10mm;
+        }
+
+        @media print {
+    html,
+    body {
+       /* width: 210mm;
+        height: 297mm;*/
+        margin: 0;
+        padding: 0;
+        background: #fff !important;
+        color: #000;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    body {
+        font-size: 10pt;
+        line-height: 1.35;
+    }
+
+    @page {
+        size: A4 portrait;
+        margin: 8mm;
+    }
+
+    .topo {
+        padding: 8mm 8mm 5mm 8mm;
+    }
+
+    .titulo-principal h1 {
+        font-size: 15pt;
+    }
+
+    .titulo-principal p {
+        font-size: 9.5pt;
+    }
+
+    .conteudo {
+        padding: 6mm 8mm 5mm 8mm;
+    }
+
+    .bloco-abertura {
+        padding: 3mm;
+        margin-bottom: 4mm;
+    }
+
+    .bloco-abertura p {
+        font-size: 10pt;
+    }
+
+    .lista-politica li {
+        margin-bottom: 2.6mm;
+        padding: 3mm 3.2mm 3mm 7.4mm;
+        font-size: 11.5pt;
+        line-height: 1.26;
+    }
+
+    .lista-politica li::before {
+        font-size: 13pt;
+        top: 2mm;
+    }
+
+    .bloco-final {
+        margin-top: 4mm;
+        padding: 3mm;
+    }
+
+    .bloco-final p {
+        font-size: 10pt;
+    }
+
+    .rodape {
+        padding: 4mm 8mm;
+    }
+
+    .dado-item .rotulo {
+        font-size: 8pt;
+    }
+
+    .dado-item .valor {
+        font-size: 9.5pt;
+    }
+
+    .selo-documento {
+        font-size: 8pt;
+        padding: 2mm 3mm;
+    }
+
+    .acoes {
+        display: none !important;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="pagina">
+        <section class="documento">
+            <header class="topo">
+                <div class="topo-superior">
+                    <div class="grupo-logos">
+                        <div class="box-logo">
+                            <img src="img/logo-hc4-branco.png" alt="Logo Consórcio HC2">
+                        </div>
+                    </div>
+
+                    <div class="identificacao">
+                        <div class="linha-1">Documento Institucional</div>
+                        <div class="linha-2">Consórcio HC4</div>
+                    </div>
+                </div>
+
+                <div class="titulo-principal">
+                    <h1>Política do Sistema de Gestão Integrada</h1>
+                    <p>
+                        Diretrizes e compromissos voltados à melhoria contínua, conformidade, segurança, saúde ocupacional, meio ambiente, produtividade e participação dos trabalhadores.
+                    </p>
+                </div>
+            </header>
+
+            <main class="conteudo">
+                <div class="bloco-abertura">
+                    <p>A Política do Sistema de Gestão Integrada está fundamentada no compromisso de:</p>
+                </div>
+
+                <ul class="lista-politica">
+                    <li>
+                        Utilizar o seu Sistema de Gestão Integrada como ferramenta para propiciar a melhoria contínua em seus processos e no estabelecimento e controle do desempenho dos objetivos do SGI.
+                    </li>
+                    <li>
+                        Atender de forma consistente aos requisitos dos clientes, estatutários, legais e regulamentares aplicáveis às atividades contratadas, buscando atender às expectativas do Cliente, Colaboradores, Acionistas e demais Partes Interessadas.
+                    </li>
+                    <li>
+                        Identificar, controlar e mitigar os riscos de segurança e saúde ocupacional, garantindo a eliminação dos perigos, lesões e doenças ocupacionais, proporcionando condições seguras e saudáveis do ambiente de trabalho.
+                    </li>
+                    <li>
+                        Identificar, controlar e mitigar os aspectos e impactos ambientais decorrentes de nossas atividades, com ênfase na proteção do meio ambiente, incluindo a prevenção da poluição, assegurando o bem-estar dos colaboradores e da circunvizinhança.
+                    </li>
+                    <li>
+                        Promover a consulta, participação, conscientização e a capacitação dos trabalhadores nas questões do SGI.
+                    </li>
+                    <li>
+                        Analisar riscos e oportunidades e prevenir deficiências, de modo que estas expectativas sejam obtidas com o menor custo e máxima produtividade.
+                    </li>
+                </ul>
+
+                <div class="bloco-final">
+                    <p>
+                        A obrigação de conhecer e praticar os preceitos da Qualidade, Segurança, Meio Ambiente e Saúde no Trabalho é de todos os Colaboradores e Subcontratados.
+                    </p>
+                </div>
+            </main>
+
+            <footer class="rodape">
+                <div class="dados-revisao">
+                    <div class="dado-item">
+                        <span class="rotulo">Revisão</span>
+                        <span class="valor">00</span>
+                    </div>
+
+                    <div class="dado-item">
+                        <span class="rotulo">Data</span>
+                        <span class="valor">02/02/2026</span>
+                    </div>
+                </div>
+
+                <div class="selo-documento">
+                    Política Corporativa
+                </div>
+            </footer>
+        </section>
+    </div>
+
+    <div class="acoes">
+        <button class="btn-imprimir" onclick="window.print()">Imprimir documento</button>
+    </div>
+</body>
+</html>
